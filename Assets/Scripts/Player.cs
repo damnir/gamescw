@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public bool canJump = true;
+
+    public bool isIdle = true;
     int groundMask = 1 << 8;
     int spikesMask = 9;
 
@@ -18,6 +20,9 @@ public class Player : MonoBehaviour
     private float acceleration = 15f;
 
     private float moveX;
+
+    private int isIdleKey = Animator.StringToHash("isIdle");
+    private int isJumpingKey = Animator.StringToHash("isJumping");
 
     void Start()
     {
@@ -88,6 +93,15 @@ public class Player : MonoBehaviour
         r.velocity = new Vector2(moveX,
         r.velocity.y);
 
+        if(physicsVelocity.x == 0)
+        {
+            isIdle = true;
+        }
+        else
+        {
+            isIdle = false;
+        }
+
         //flashlight stuff
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePosition - transform.position;
@@ -100,14 +114,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Animator animator = GetComponent<Animator>();
+        animator.SetBool(isIdleKey, isIdle);
+        animator.SetBool(isJumpingKey, !canJump);
+
+
         if (Input.GetMouseButtonDown(0))
         {
-            if (flashlight.active)
-            {
-                flashlight.SetActive(false);
-            }
-            else flashlight.SetActive(true);
-
+            flashlight.SetActive(!flashlight.active);
         }
     }
 

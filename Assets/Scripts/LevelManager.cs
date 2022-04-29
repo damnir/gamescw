@@ -20,6 +20,13 @@ public class LevelManager : MonoBehaviour
 
     public GameObject flashlight;
 
+    public GameObject lightBackground;
+    public GameObject darkBackground;
+
+    public bool lightOn = true;
+
+    public Level.LevelType activeType = Level.LevelType.Light;
+
     void Start()
     {
         activeLevel = levels[0];
@@ -28,6 +35,54 @@ public class LevelManager : MonoBehaviour
     void FixedUpdate()
     {
         checkTiles();
+    }
+
+    public void switchLevels(bool light)
+    {
+        foreach (GameObject level in levels)
+        {
+            if (light)
+            {
+                if (level.GetComponent<Level>().type == Level.LevelType.Light)
+                {
+                    level.GetComponent<TilemapRenderer>().enabled = true;
+                    level.GetComponent<TilemapCollider2D>().isTrigger = false;
+                }
+                else
+                {
+                    level.GetComponent<TilemapRenderer>().enabled = false;
+                    level.GetComponent<TilemapCollider2D>().isTrigger = true;
+                }
+            }
+            else
+            {
+                if (level.GetComponent<Level>().type == Level.LevelType.Dark)
+                {
+                    level.GetComponent<TilemapRenderer>().enabled = true;
+                    level.GetComponent<TilemapCollider2D>().isTrigger = false;
+                }
+                else
+                {
+                    level.GetComponent<TilemapRenderer>().enabled = false;
+                    level.GetComponent<TilemapCollider2D>().isTrigger = true;
+                }
+            }
+        }
+
+        if (light)
+        {
+            lightBackground.SetActive(true);
+            darkBackground.SetActive(false);
+            lightOn = true;
+            activeType = Level.LevelType.Light;
+        }
+        else
+        {
+            lightBackground.SetActive(false);
+            darkBackground.SetActive(true);
+            lightOn = false;
+            activeType = Level.LevelType.Dark;
+        }
     }
 
 

@@ -17,9 +17,11 @@ public class Player : MonoBehaviour
     public GameObject flashlight;
 
     private float moveSpeed = 5f;
+    private float jumpSpeed = 3f;
     private float acceleration = 15f;
 
     private float moveX;
+    private float moveY;
 
     private int isIdleKey = Animator.StringToHash("isIdle");
     private int isJumpingKey = Animator.StringToHash("isJumping");
@@ -46,14 +48,16 @@ public class Player : MonoBehaviour
                 physicsVelocity.x += 1;
             }
 
-            if (Input.GetKey(KeyCode.W))
+
+            if (canJump)
             {
-                if (canJump)
+                if (r.velocity.y >= 7)
                 {
-                    r.velocity = new Vector2(physicsVelocity.x, 8);
                     canJump = false;
+
                 }
             }
+
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 levelManager.changeLevel(0);
@@ -86,14 +90,16 @@ public class Player : MonoBehaviour
         flashlight.transform.position = this.transform.position;
 
         moveX = Mathf.MoveTowards(moveX, physicsVelocity.x * moveSpeed, Time.deltaTime * acceleration);
+        // moveY = Mathf.MoveTowards(moveY, physicsVelocity.y * jumpSpeed, Time.deltaTime * acceleration);
+
         // Debug.Log(moveX);
 
-        flashlight.transform.Find("Flashlight").transform.localScale = new Vector3(1, -Mathf.Abs(moveX)/6+1, 0);
+        flashlight.transform.Find("Flashlight").transform.localScale = new Vector3(1, -Mathf.Abs(moveX) / 6 + 1, 0);
 
         r.velocity = new Vector2(moveX,
         r.velocity.y);
 
-        if(physicsVelocity.x == 0)
+        if (physicsVelocity.x == 0)
         {
             isIdle = true;
         }
@@ -109,7 +115,6 @@ public class Player : MonoBehaviour
         float angle = Vector2.SignedAngle(Vector2.right, direction);
         flashlight.transform.eulerAngles = new Vector3(0, 0, angle);
 
-
     }
 
     void Update()
@@ -118,10 +123,28 @@ public class Player : MonoBehaviour
         animator.SetBool(isIdleKey, isIdle);
         animator.SetBool(isJumpingKey, !canJump);
 
+        Rigidbody2D r = GetComponent<Rigidbody2D>();
+
 
         if (Input.GetMouseButtonDown(0))
         {
             flashlight.SetActive(!flashlight.active);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            levelManager.switchLevels(!levelManager.lightOn);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (canJump)
+            {
+                if (r.velocity.y < 7)
+                {
+                    r.AddForce(new Vector2(0, 70));
+                }
+            }
         }
     }
 
@@ -138,6 +161,7 @@ public class Player : MonoBehaviour
         {
             respawn();
         }
+
     }
 
     public void hitSpike()

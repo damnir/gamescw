@@ -8,7 +8,7 @@ public class Flashlight : MonoBehaviour
     private ContactPoint2D[] contants = new ContactPoint2D[5];
     public GameObject gridGo;
     public GameObject levelManagerGo;
-        private Player player;
+    private Player player;
 
 
     private LevelManager levelManager;
@@ -28,9 +28,13 @@ public class Flashlight : MonoBehaviour
     {
         if (levelManager.levels.Contains(other.gameObject))
         {
+            if (other.gameObject.GetComponent<Level>().type == levelManager.activeType)
+            {
+                return;
+            }
             Debug.Log("hit: " + other.gameObject.name + " mask:" + other.gameObject.layer);
             other.gameObject.GetComponent<TilemapRenderer>().enabled = true;
-            other.gameObject.GetComponent<TilemapCollider2D>().isTrigger = false;
+            // other.gameObject.GetComponent<TilemapCollider2D>().isTrigger = false;
         }
 
     }
@@ -39,8 +43,12 @@ public class Flashlight : MonoBehaviour
     {
         if (levelManager.levels.Contains(other.gameObject))
         {
+            if (other.gameObject.GetComponent<Level>().type == levelManager.activeType)
+            {
+                return;
+            }
             other.gameObject.GetComponent<TilemapRenderer>().enabled = false;
-            other.gameObject.GetComponent<TilemapCollider2D>().isTrigger = true;
+            // other.gameObject.GetComponent<TilemapCollider2D>().isTrigger = true;
         }
     }
 

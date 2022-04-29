@@ -6,12 +6,18 @@ public class Player : MonoBehaviour
 {
     public bool canJump = true;
     int groundMask = 1 << 8;
+    int spikesMask = 9;
 
     public GameObject levelManagerGo;
 
     private LevelManager levelManager;
 
     public GameObject flashlight;
+
+    private float moveSpeed = 5f;
+    private float acceleration = 15f;
+
+    private float moveX;
 
     void Start()
     {
@@ -28,11 +34,11 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                physicsVelocity.x -= 5;
+                physicsVelocity.x -= 1;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                physicsVelocity.x += 5;
+                physicsVelocity.x += 1;
             }
 
             if (Input.GetKey(KeyCode.W))
@@ -64,8 +70,6 @@ public class Player : MonoBehaviour
             levelManager.disableXray();
         }
 
-
-
         if (Physics2D.Raycast(new Vector2
         (transform.position.x,
         transform.position.y),
@@ -76,9 +80,12 @@ public class Player : MonoBehaviour
 
         flashlight.transform.position = this.transform.position;
 
+        moveX = Mathf.MoveTowards(moveX, physicsVelocity.x * moveSpeed, Time.deltaTime * acceleration);
+        // Debug.Log(moveX);
 
+        flashlight.transform.Find("Flashlight").transform.localScale = new Vector3(1, -Mathf.Abs(moveX)/6+1, 0);
 
-        r.velocity = new Vector2(physicsVelocity.x,
+        r.velocity = new Vector2(moveX,
         r.velocity.y);
 
         //flashlight stuff
@@ -86,27 +93,42 @@ public class Player : MonoBehaviour
         Vector2 direction = mousePosition - transform.position;
 
         float angle = Vector2.SignedAngle(Vector2.right, direction);
-        flashlight.transform.eulerAngles = new Vector3 (0, 0, angle);
+        flashlight.transform.eulerAngles = new Vector3(0, 0, angle);
 
 
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (flashlight.active)
+            {
+                flashlight.SetActive(false);
+            }
+            else flashlight.SetActive(true);
+
+        }
     }
 
     public void respawn()
     {
         this.gameObject.transform.position = new Vector3(-12.27f, -2.12f, 0f);
-        levelManager.disableXray();
+        // levelManager.disableXray();
         levelManager.changeLevel(0);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("hit");
-
-        if(other.gameObject.name == "Tilemap2")
+        if (other.gameObject.layer == 9)
         {
-            Debug.Log("hit");
+            respawn();
         }
-
     }
-    
+
+    public void hitSpike()
+    {
+        respawn();
+    }
+
 }

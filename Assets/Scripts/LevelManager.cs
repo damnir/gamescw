@@ -33,30 +33,30 @@ public class LevelManager : MonoBehaviour
 
     public void changeLevel(int index)
     {
-        activeLevel = levels[index];
+        // activeLevel = levels[index];
 
-        if (xRayOn) disableXray();
+        // if (xRayOn) disableXray();
 
-        foreach (GameObject level in levels)
-        {
-            level.SetActive(false);
-        }
+        // foreach (GameObject level in levels)
+        // {
+        //     level.SetActive(false);
+        // }
 
-        activeLevel.SetActive(true);
+        // activeLevel.SetActive(true);
 
     }
 
     public void enableXray()
     {
-        foreach (GameObject level in levels)
-        {
-            if (level != activeLevel)
-            {
-                level.SetActive(true);
-                level.GetComponent<TilemapCollider2D>().enabled = false;
-                level.GetComponent<Renderer>().material.color = color_transparent;
-            }
-        }
+        // foreach (GameObject level in levels)
+        // {
+        //     if (level != activeLevel)
+        //     {
+        //         level.SetActive(true);
+        //         level.GetComponent<TilemapCollider2D>().enabled = false;
+        //         level.GetComponent<Renderer>().material.color = color_transparent;
+        //     }
+        // }
 
         xRayOn = true;
         xRayBnd.SetActive(true);
@@ -64,14 +64,14 @@ public class LevelManager : MonoBehaviour
 
     public void disableXray()
     {
-        foreach (GameObject level in levels)
-        {
-            level.SetActive(false);
-            level.GetComponent<TilemapCollider2D>().enabled = true;
-            level.GetComponent<Renderer>().material.color = color_full;
-        }
+        // foreach (GameObject level in levels)
+        // {
+        //     level.SetActive(false);
+        //     level.GetComponent<TilemapCollider2D>().enabled = true;
+        //     level.GetComponent<Renderer>().material.color = color_full;
+        // }
 
-        activeLevel.SetActive(true);
+        // activeLevel.SetActive(true);
 
         xRayOn = false;
         xRayBnd.SetActive(false);

@@ -125,22 +125,8 @@ public class Player : MonoBehaviour
     {
         this.gameObject.transform.position = new Vector3(-12.27f, -2.12f, 0f);
         // levelManager.disableXray();
-        levelManager.lightOn = true;
+        levelManager.lightOn = false;
         levelManager.switchLevels(true);
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.layer == 9)
-        {
-            respawn();
-        }
-
-    }
-
-    public void hitSpike()
-    {
-        respawn();
     }
 
 }

@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
                     {
                         trap.maskInteraction = SpriteMaskInteraction.None;
                         trap.color = colorFull;
+                        trap.gameObject.GetComponent<Rigidbody2D>().simulated = true;
                     }
                 }
                 else
@@ -52,6 +53,8 @@ public class LevelManager : MonoBehaviour
                     {
                         trap.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
                         trap.color = colorTransparent;
+                        trap.gameObject.GetComponent<Rigidbody2D>().simulated = false;
+
                     }
                 }
             }
@@ -68,6 +71,7 @@ public class LevelManager : MonoBehaviour
                     {
                         trap.maskInteraction = SpriteMaskInteraction.None;
                         trap.color = colorFull;
+                        trap.gameObject.GetComponent<Rigidbody2D>().simulated = true;
                     }
                 }
                 else
@@ -81,6 +85,7 @@ public class LevelManager : MonoBehaviour
                     {
                         trap.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
                         trap.color = colorTransparent;
+                        trap.gameObject.GetComponent<Rigidbody2D>().simulated = false;
                     }
                 }
             }

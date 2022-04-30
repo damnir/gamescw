@@ -545,6 +545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGo: {fileID: 1911755685}
+  player: {fileID: 0}
+  collided: 0
 --- !u!114 &505074488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2514,9 +2516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580964350}
   - component: {fileID: 1580964351}
-  - component: {fileID: 1580964354}
   - component: {fileID: 1580964353}
-  - component: {fileID: 1580964352}
   - component: {fileID: 1580964355}
   m_Layer: 0
   m_Name: Flashlight
@@ -2590,39 +2590,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1580964352
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580964349}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12, y: 12}
-    newSize: {x: 6, y: 4.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 4.263299, y: 0.55630815}
-      - {x: -5.085561, y: 3.1741755}
-      - {x: -5.2914886, y: -3.4603758}
-      - {x: 2.3788548, y: -1.2612677}
-      - {x: 2.0565212, y: -1.1159855}
-      - {x: 2.2724175, y: -1.244838}
-      - {x: 2.4851568, y: -1.1870114}
-      - {x: 4.204498, y: -0.71965665}
 --- !u!114 &1580964353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,27 +2604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridGo: {fileID: 1208620411}
   levelManagerGo: {fileID: 575201401}
---- !u!50 &1580964354
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580964349}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!331 &1580964355
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -2724,7 +2670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1624530624
 Transform:
   m_ObjectHideFlags: 0
@@ -2803,6 +2749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGo: {fileID: 1911755685}
+  player: {fileID: 0}
+  collided: 0
 --- !u!114 &1641697516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4149,7 +4097,6 @@ GameObject:
   - component: {fileID: 1911755690}
   - component: {fileID: 1911755689}
   - component: {fileID: 1911755688}
-  - component: {fileID: 1911755691}
   - component: {fileID: 1911755692}
   m_Layer: 0
   m_Name: Player
@@ -4276,39 +4223,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.035057068, y: 0}
   m_Size: {x: 0.80441856, y: 1}
   m_Direction: 0
---- !u!60 &1911755691
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911755685}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.4375, y: -0.5}
-      - {x: 0.50964355, y: -0.28820992}
-      - {x: 5.9411964, y: -1.5847268}
-      - {x: 5.9705067, y: 2.0166826}
-      - {x: 0.5, y: 0.3125}
-      - {x: 0.4375, y: 0.5}
 --- !u!95 &1911755692
 Animator:
   serializedVersion: 3
@@ -4378,6 +4292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGo: {fileID: 1911755685}
+  player: {fileID: 0}
+  collided: 0
 --- !u!114 &2047324371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5688,6 +5604,10 @@ PrefabInstance:
     - target: {fileID: 1603161789496261623, guid: 087eb31d6dba361479661cda6effa8dd, type: 3}
       propertyPath: m_Name
       value: Saw
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182965280464341483, guid: 087eb31d6dba361479661cda6effa8dd, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 087eb31d6dba361479661cda6effa8dd, type: 3}

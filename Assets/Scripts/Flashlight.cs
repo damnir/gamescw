@@ -26,6 +26,7 @@ public class Flashlight : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collided with: " + other.gameObject.name);
         if (levelManager.levels.Contains(other.gameObject))
         {
             if (other.gameObject.GetComponent<Level>().type == levelManager.activeType)

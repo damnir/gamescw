@@ -1,28 +1,24 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 //modified version of:
 //https://developpaper.com/unity-implements-fade-in-and-fade-out-effect-of-background-pictures/
+
 public class FadeAnimation : MonoBehaviour
 {
-    public GameObject background;
-    public GameObject background2;
-
-    public SpriteRenderer bgimages;
-    public SpriteRenderer bgimages2;
-    public float ShowTimeTrigger = 0;
-    public float fadeTime = 3;
-    public float fadeTimeTrigger = 0;
+    public GameObject background1Go;
+    public GameObject background2Go;
+    private SpriteRenderer background1;
+    private SpriteRenderer background2;
+    private float ShowTimeTrigger = 0;
+    private float fadeTime = 0.3f;
+    private float fadeTimeTrigger = 0;
     private bool show = true;
-
-    public bool swap = false;
+    private bool swap = false;
     // Use this for initialization
     void Start()
     {
-        bgimages = background.GetComponent<SpriteRenderer>();
-        bgimages2 = background2.GetComponent<SpriteRenderer>();
-        // bgimages.color
+        background1 = background1Go.GetComponent<SpriteRenderer>();
+        background2 = background2Go.GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
     void Update()
@@ -35,33 +31,27 @@ public class FadeAnimation : MonoBehaviour
                 fadeTimeTrigger += Time.deltaTime;
                 if (show)
                 {
-                    bgimages.color = new Color(1, 1, 1, 1 - (fadeTimeTrigger / fadeTime));
-                    bgimages2.color = new Color(1, 1, 1, (fadeTimeTrigger / fadeTime));
+                    background1.color = new Color(1, 1, 1, 1 - (fadeTimeTrigger / fadeTime));
+                    background2.color = new Color(1, 1, 1, (fadeTimeTrigger / fadeTime));
 
                 }
                 else
                 {
-                    bgimages.color = new Color(1, 1, 1, (fadeTimeTrigger / fadeTime));
-                    bgimages2.color = new Color(1, 1, 1, 1 - (fadeTimeTrigger / fadeTime));
+                    background1.color = new Color(1, 1, 1, (fadeTimeTrigger / fadeTime));
+                    background2.color = new Color(1, 1, 1, 1 - (fadeTimeTrigger / fadeTime));
                 }
             }
             else
             {
                 fadeTimeTrigger = 0;
                 ShowTimeTrigger = 0;
-                if (show)
-                {
-                    show = false;
-                    swap = false;
-                }
-                else
-                {
-                    show = true;
-                    swap = false;
-                }
+
+                if (show) show = false;
+                else show = true;
+            
+                swap = false;
             }
         }
-
     }
 
     public void swapBackgrounds()

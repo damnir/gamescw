@@ -33,50 +33,25 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
         Vector2 physicsVelocity = Vector2.zero;
         Rigidbody2D r = GetComponent<Rigidbody2D>();
 
-        if (!levelManager.xRayOn)
+        if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                physicsVelocity.x -= 1;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                physicsVelocity.x += 1;
-            }
-
-
-            if (canJump)
-            {
-                if (r.velocity.y >= 7)
-                {
-                    canJump = false;
-
-                }
-            }
-
-            if (Input.GetKey(KeyCode.Alpha1))
-            {
-                levelManager.changeLevel(0);
-            }
-
-            if (Input.GetKey(KeyCode.Alpha2))
-            {
-                levelManager.changeLevel(1);
-            }
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                levelManager.enableXray();
-            }
+            physicsVelocity.x -= 1;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            physicsVelocity.x += 1;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (canJump)
         {
-            levelManager.disableXray();
+            if (r.velocity.y >= 7)
+            {
+                canJump = false;
+
+            }
         }
 
         if (Physics2D.Raycast(new Vector2
@@ -87,14 +62,7 @@ public class Player : MonoBehaviour
             canJump = true;
         }
 
-        flashlight.transform.position = this.transform.position;
-
         moveX = Mathf.MoveTowards(moveX, physicsVelocity.x * moveSpeed, Time.deltaTime * acceleration);
-        // moveY = Mathf.MoveTowards(moveY, physicsVelocity.y * jumpSpeed, Time.deltaTime * acceleration);
-
-        // Debug.Log(moveX);
-
-        flashlight.transform.Find("Flashlight").transform.localScale = new Vector3(1, -Mathf.Abs(moveX) / 6 + 1, 0);
 
         r.velocity = new Vector2(moveX,
         r.velocity.y);
@@ -109,6 +77,9 @@ public class Player : MonoBehaviour
         }
 
         //flashlight stuff
+        flashlight.transform.position = this.transform.position;
+        flashlight.transform.Find("Flashlight").transform.localScale = new Vector3(1, -Mathf.Abs(moveX) / 6 + 1, 0);
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePosition - transform.position;
 
@@ -152,7 +123,7 @@ public class Player : MonoBehaviour
     {
         this.gameObject.transform.position = new Vector3(-12.27f, -2.12f, 0f);
         // levelManager.disableXray();
-        levelManager.changeLevel(0);
+        levelManager.switchLevels(true);
     }
 
     void OnCollisionEnter2D(Collision2D other)

@@ -2286,15 +2286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117a5d2802a3f5c47b65a131a01897fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 159608586}
-  background2: {fileID: 0}
-  bgimages: {fileID: 0}
-  bgimages2: {fileID: 0}
-  showTime: 5
-  ShowTimeTrigger: 0
-  fadeTime: 0.35
-  fadeTimeTrigger: 0
-  swap: 0
+  background1Go: {fileID: 0}
+  background2Go: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2511,11 +2504,7 @@ MonoBehaviour:
   levels:
   - {fileID: 1641697513}
   - {fileID: 2047324368}
-  xRayBnd: {fileID: 0}
-  xRayOn: 0
   flashlight: {fileID: 1580964349}
-  lightBackground: {fileID: 159608586}
-  darkBackground: {fileID: 463246465}
   lightOn: 1
   activeType: 0
 --- !u!4 &575201403
@@ -2544,15 +2533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117a5d2802a3f5c47b65a131a01897fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 159608586}
-  background2: {fileID: 463246465}
-  bgimages: {fileID: 0}
-  bgimages2: {fileID: 0}
-  showTime: 5
-  ShowTimeTrigger: 0
-  fadeTime: 0.35
-  fadeTimeTrigger: 0
-  swap: 0
+  background1Go: {fileID: 159608586}
+  background2Go: {fileID: 463246465}
 --- !u!1 &626812916
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,7 +6898,7 @@ GameObject:
   - component: {fileID: 2047324372}
   - component: {fileID: 2047324371}
   - component: {fileID: 2047324370}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Version2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

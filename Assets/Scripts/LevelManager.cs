@@ -45,26 +45,33 @@ public class LevelManager : MonoBehaviour
             {
                 if (level.GetComponent<Level>().type == Level.LevelType.Light)
                 {
-                    level.GetComponent<TilemapRenderer>().enabled = true;
+                    // level.GetComponent<TilemapRenderer>().enabled = true;
                     level.GetComponent<TilemapCollider2D>().isTrigger = false;
+                    level.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.None;
                 }
                 else
                 {
-                    level.GetComponent<TilemapRenderer>().enabled = false;
+                    // level.GetComponent<TilemapRenderer>().enabled = false;
                     level.GetComponent<TilemapCollider2D>().isTrigger = true;
+                    level.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+
                 }
             }
             else
             {
                 if (level.GetComponent<Level>().type == Level.LevelType.Dark)
                 {
-                    level.GetComponent<TilemapRenderer>().enabled = true;
+                    // level.GetComponent<TilemapRenderer>().enabled = true;
                     level.GetComponent<TilemapCollider2D>().isTrigger = false;
+                    level.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.None;
+
                 }
                 else
                 {
-                    level.GetComponent<TilemapRenderer>().enabled = false;
+                    // level.GetComponent<TilemapRenderer>().enabled = false;
                     level.GetComponent<TilemapCollider2D>().isTrigger = true;
+                    level.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+
                 }
             }
         }

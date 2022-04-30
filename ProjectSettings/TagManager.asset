@@ -16,8 +16,8 @@ TagManager:
   - ground
   - spikes
   - falseGround
-  - 
-  - 
+  - PostProcessing
+  - background
   - 
   - 
   - 

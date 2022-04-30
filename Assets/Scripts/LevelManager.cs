@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
     }
     public void switchLevels(bool light)
     {
+        if(light && lightOn) return;
         foreach (GameObject level in levels)
         {
             if (light)

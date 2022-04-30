@@ -124,8 +124,6 @@ public class Player : MonoBehaviour
     public void respawn()
     {
         this.gameObject.transform.position = new Vector3(-12.27f, -2.12f, 0f);
-        // levelManager.disableXray();
-        levelManager.lightOn = false;
         levelManager.switchLevels(true);
     }
 

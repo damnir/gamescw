@@ -12,7 +12,7 @@ public class FadeAnimation : MonoBehaviour
     private float ShowTimeTrigger = 0;
     private float fadeTime = 0.3f;
     private float fadeTimeTrigger = 0;
-    private bool show = true;
+    public bool show = true;
     private bool swap = false;
     // Use this for initialization
     void Start()

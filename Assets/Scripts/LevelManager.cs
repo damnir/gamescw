@@ -27,9 +27,12 @@ public class LevelManager : MonoBehaviour
 
     public Level.LevelType activeType = Level.LevelType.Light;
 
+    private FadeAnimation fadeAnimation;
+
     void Start()
     {
         activeLevel = levels[0];
+        fadeAnimation = this.GetComponent<FadeAnimation>();
     }
 
     void FixedUpdate()
@@ -78,18 +81,17 @@ public class LevelManager : MonoBehaviour
 
         if (light)
         {
-            lightBackground.SetActive(true);
-            darkBackground.SetActive(false);
             lightOn = true;
             activeType = Level.LevelType.Light;
         }
         else
         {
-            lightBackground.SetActive(false);
-            darkBackground.SetActive(true);
+
             lightOn = false;
             activeType = Level.LevelType.Dark;
         }
+
+        fadeAnimation.swapBackgrounds();
     }
 
 

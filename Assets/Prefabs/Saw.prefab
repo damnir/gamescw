@@ -117,6 +117,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca3d050dae14ae4599d9eb4bac4996a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingY: 0
+  movingX: 0
+  animFrames: 2
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!58 &6476394292665770441
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +150,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603161789496261623}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

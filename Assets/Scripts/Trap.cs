@@ -19,9 +19,12 @@ public class Trap : MonoBehaviour
     }
 
     // Start is called before the first frame update
+    float startTime;
     void Start()
     {
         originalPosition = transform.position;
+        Debug.Log("starting");
+        startTime = Time.time;
     }
     public AnimationCurve curve;
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class Trap : MonoBehaviour
         }
         if (movingX)
         {
-            transform.position = new Vector2(curve.Evaluate((Time.time)) + originalPosition.x,
+            transform.position = new Vector2(curve.Evaluate((Time.time-startTime)) + originalPosition.x,
             originalPosition.y);
         }
     }

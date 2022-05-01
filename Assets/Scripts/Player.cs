@@ -64,6 +64,14 @@ public class Player : MonoBehaviour
             canJump = true;
         }
 
+        if (Physics2D.Raycast(new Vector2
+        (transform.position.x,
+        transform.position.y),
+        -Vector2.up, -0.3f, groundMask))
+        {
+            respawn();
+        }
+
         moveX = Mathf.MoveTowards(moveX, physicsVelocity.x * moveSpeed, Time.deltaTime * acceleration);
 
         r.velocity = new Vector2(moveX,

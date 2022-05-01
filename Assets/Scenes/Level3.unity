@@ -6901,6 +6901,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2235044690013821284, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6133692e20c25e341a059a7ad728c1fc, type: 2}
     - target: {fileID: 2235044690013821285, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
       propertyPath: flashlight
       value: 
@@ -6909,6 +6913,14 @@ PrefabInstance:
       propertyPath: levelManagerGo
       value: 
       objectReference: {fileID: 575201401}
+    - target: {fileID: 2235044690013821287, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6562462
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235044690013821287, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.032313347
+      objectReference: {fileID: 0}
     - target: {fileID: 2235044690013821288, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
       propertyPath: m_Name
       value: Player

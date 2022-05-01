@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
     private int isIdleKey = Animator.StringToHash("isIdle");
     private int isJumpingKey = Animator.StringToHash("isJumping");
 
+    Quaternion leftRotation = new Quaternion(0, 180, 0, 0);
+    Quaternion rightRotation = new Quaternion(0, 0, 0, 0);
+
+
     void Start()
     {
         levelManager = levelManagerGo.GetComponent<LevelManager>();
@@ -42,10 +46,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             physicsVelocity.x -= 1;
+            this.transform.rotation = leftRotation;
         }
         if (Input.GetKey(KeyCode.D))
         {
             physicsVelocity.x += 1;
+            this.transform.rotation = rightRotation;
         }
 
         if (canJump)

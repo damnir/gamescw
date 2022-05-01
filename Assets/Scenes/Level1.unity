@@ -411,9 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d64d7a578375949b1e9ae7c74564ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGo: {fileID: 1911755685}
-  player: {fileID: 0}
-  collided: 0
 --- !u!114 &505074488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,9 +2100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d64d7a578375949b1e9ae7c74564ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGo: {fileID: 1911755685}
-  player: {fileID: 0}
-  collided: 0
 --- !u!114 &1641697516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3439,17 +3433,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1911755685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2235044690013821288, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
-  m_PrefabInstance: {fileID: 2235044689731816141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1911755688 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2235044690013821285, guid: 264cfaca942ee1944aa8a871713159d4, type: 3}
   m_PrefabInstance: {fileID: 2235044689731816141}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911755685}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 331bc31e0dad8c047bebff07d98a8f7f, type: 3}
@@ -3504,9 +3493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d64d7a578375949b1e9ae7c74564ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGo: {fileID: 1911755685}
-  player: {fileID: 0}
-  collided: 0
 --- !u!114 &2047324371
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,13 +13,15 @@ public class Trampoline : MonoBehaviour
     private Rigidbody2D playerRigid;
 
     private float forceToAdd = 0;
-    
+
+    public bool directionY = false;
+
 
     void Start()
     {
         player = GameObject.Find("Player");
         playerRigid = player.GetComponent<Rigidbody2D>();
-        forceToAdd = trampolineForce/6;
+        forceToAdd = trampolineForce / 6;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -34,11 +36,18 @@ public class Trampoline : MonoBehaviour
 
     void Update()
     {
-        if(collided)
+        if (collided)
         {
             if (forceAdded < trampolineForce)
             {
-                playerRigid.AddForce(new Vector2(forceToAdd, 0));
+                if (directionY)
+                {
+                    playerRigid.AddForce(new Vector2(0, forceToAdd));
+                }
+                else
+                {
+                    playerRigid.AddForce(new Vector2(forceToAdd, 0));
+                }
                 forceAdded += forceToAdd;
                 forceToAdd /= 1.195f;
             }
@@ -46,7 +55,7 @@ public class Trampoline : MonoBehaviour
             {
                 collided = false;
                 forceAdded = 0;
-                forceToAdd = trampolineForce/6;
+                forceToAdd = trampolineForce / 6;
             }
         }
     }

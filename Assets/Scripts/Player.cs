@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -131,8 +132,7 @@ public class Player : MonoBehaviour
 
     public void respawn()
     {
-        this.gameObject.transform.position = new Vector3(-12.27f, -2.12f, 0f);
-        levelManager.switchLevels(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

@@ -34,7 +34,7 @@ public class Trap : MonoBehaviour
         }
         if (movingX)
         {
-            transform.position = new Vector2(curve.Evaluate((Time.time % animFrames)) + originalPosition.x,
+            transform.position = new Vector2(curve.Evaluate((Time.time)) + originalPosition.x,
             originalPosition.y);
         }
     }

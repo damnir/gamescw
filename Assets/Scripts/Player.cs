@@ -95,7 +95,8 @@ public class Player : MonoBehaviour
 
         //flashlight stuff
         flashlight.transform.position = this.transform.position;
-        flashlight.transform.Find("Flashlight").transform.localScale = new Vector3(1, -Mathf.Abs(moveX) / 6 + 1, 0);
+        Transform flashlightTransform = flashlight.transform.Find("Flashlight").transform;
+        flashlightTransform.localScale = new Vector3(flashlightTransform.localScale.x, -Mathf.Abs(moveX) / 6 + 1, 0);
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePosition - transform.position;

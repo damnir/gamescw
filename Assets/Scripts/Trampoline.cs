@@ -34,10 +34,15 @@ public class Trampoline : MonoBehaviour
         }
     }
 
+    float direction;
     void Update()
     {
         if (collided)
         {
+            if (forceAdded == 0)
+            {
+                direction = playerRigid.velocity.normalized.x;
+            }
             if (forceAdded < trampolineForce)
             {
                 if (directionY)
@@ -46,7 +51,7 @@ public class Trampoline : MonoBehaviour
                 }
                 else
                 {
-                    playerRigid.AddForce(new Vector2(forceToAdd, 0));
+                    playerRigid.AddForce(new Vector2(direction * -forceToAdd, 0));
                 }
                 forceAdded += forceToAdd;
                 forceToAdd /= 1.195f;

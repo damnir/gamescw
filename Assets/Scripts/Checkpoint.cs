@@ -11,9 +11,14 @@ public class Checkpoint : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
-            string nextSceneNum= currentSceneName.Substring(currentSceneName.Length-1, 1);
+            string nextSceneNum = currentSceneName.Substring(currentSceneName.Length - 1, 1);
             int index = int.Parse(nextSceneNum);
-            string nextSceneName = string.Format("Level{0}", index+1);
+            if (index == 6)
+            {
+                SceneManager.LoadScene("End");
+                return;
+            }
+            string nextSceneName = string.Format("Level{0}", index + 1);
             SceneManager.LoadScene(nextSceneName);
         }
     }

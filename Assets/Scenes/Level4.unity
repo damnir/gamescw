@@ -712,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249470076109556215, guid: c9fd02761dbc63a4aa3b151424c1e0b0, type: 3}
       propertyPath: trampolineForce
-      value: 66000
+      value: 65000
       objectReference: {fileID: 0}
     - target: {fileID: 4942498113242806620, guid: c9fd02761dbc63a4aa3b151424c1e0b0, type: 3}
       propertyPath: m_Color.a

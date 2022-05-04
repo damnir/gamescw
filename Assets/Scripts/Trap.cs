@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    [Header("Direction")]
     public bool movingY = false;
     public bool movingX = false;
     public int animFrames = 2;
     private Vector2 originalPosition;
+    private float startTime;
+    public AnimationCurve curve;
 
+    //respawn the player upon collision
     void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("COLLISION: " + other.gameObject.name);
@@ -17,19 +21,16 @@ public class Trap : MonoBehaviour
             other.gameObject.GetComponent<Player>().respawn();
         }
     }
-
-    // Start is called before the first frame update
-    float startTime;
+    //keep start time and position to reset their positions at respawn
     void Start()
     {
         originalPosition = transform.position;
         Debug.Log("starting");
         startTime = Time.time;
     }
-    public AnimationCurve curve;
-    // Update is called once per frame
     void Update()
     {
+        //Evaluate the animation curve based on direction of movement.
         if (movingY)
         {
             transform.position = new Vector2(originalPosition.x,
@@ -37,13 +38,9 @@ public class Trap : MonoBehaviour
         }
         if (movingX)
         {
-            transform.position = new Vector2(curve.Evaluate((Time.time-startTime)) + originalPosition.x,
+            transform.position = new Vector2(curve.Evaluate((Time.time - startTime)) + originalPosition.x,
             originalPosition.y);
         }
     }
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    // }
 
 }

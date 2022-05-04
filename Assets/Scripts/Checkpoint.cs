@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Checkpoint : MonoBehaviour
 {
+    //Load the next scene/end screen upon collision
     void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("COLLISION: " + other.gameObject.name);

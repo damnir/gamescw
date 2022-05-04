@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 {
     private Player player;
     private GameObject checkpoint;
-    // Start is called before the first frame update
+
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -14,6 +14,7 @@ public class Coin : MonoBehaviour
         checkpoint.SetActive(false);
     }
 
+    //Enable checkpoint only when the coin is collected, disable the coin
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("COLLISION: " + other.gameObject.name);

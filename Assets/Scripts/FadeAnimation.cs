@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FadeAnimation : MonoBehaviour
 {
+    [Header("Backgrounds to Switch Between")]
     public GameObject background1Go;
     public GameObject background2Go;
     private SpriteRenderer background1;

@@ -1795,10 +1795,10 @@ RectTransform:
   m_Father: {fileID: 8845150316893964448}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.126, y: 174.30688}
-  m_SizeDelta: {x: 585.7487, y: 246.9714}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 22.126, y: -226}
+  m_SizeDelta: {x: 585.7487, y: 246.97144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206268239
 MonoBehaviour:
@@ -5087,6 +5087,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6211446186045002110, guid: 81e4f3aa65e7eee4688a48d7d360a411, type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6211446186045002111, guid: 81e4f3aa65e7eee4688a48d7d360a411, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5323,6 +5327,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8845150315714343095, guid: ea975a06e061bb54c946333392a1c958, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845150315714343095, guid: ea975a06e061bb54c946333392a1c958, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845150315714343095, guid: ea975a06e061bb54c946333392a1c958, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845150315714343095, guid: ea975a06e061bb54c946333392a1c958, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5375,12 +5391,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8845150315714343096, guid: ea975a06e061bb54c946333392a1c958, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845150315714343096, guid: ea975a06e061bb54c946333392a1c958, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845150315714343097, guid: ea975a06e061bb54c946333392a1c958, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8845150315714343099, guid: ea975a06e061bb54c946333392a1c958, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845150315714343099, guid: ea975a06e061bb54c946333392a1c958, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8845150316472300064, guid: ea975a06e061bb54c946333392a1c958, type: 3}
       propertyPath: m_IsActive
